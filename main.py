@@ -19,7 +19,8 @@ from scipy import sparse
 from scipy.sparse.linalg import spsolve
 from scipy.signal import wiener
 
-from sif_tools import sif2array
+#from sif_tools import sif2array
+from sif_tools import SIFconvert
 
 import sys, os
 #os.chdir("C:/Users/adato/OneDrive - Danmarks Tekniske Universitet/Dokumenter/Programs/qtspectra/AndorV2/")
@@ -575,7 +576,8 @@ class main(QMainWindow):
         # [[  257., 12098.]
         # ...
         # [  768., 15538.]] 
-        data = sif2array(target=path, reduce_noise=False, window='narrow')
+        #data = sif2array(target=path, reduce_noise=False, window='narrow')
+        data = SIFconvert(target=path)
         # Transforming into pandas data frame and asssigning column 0 as index 
         df1 = pd.DataFrame(data)
         #df1.index = df1[0]
